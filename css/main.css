@@ -23,6 +23,10 @@ h1 {
     font-size: 24px;
 }
 
+img{
+    width: 100%;
+}
+
 .controls {
     margin: 0 auto;
     padding: 15px 0;
@@ -44,11 +48,12 @@ button {
 .slider {
     cursor: pointer;
     margin: 0 auto;
-    width: 800px;
-    height: 450px;
-    background-color: rgb(182, 203, 222);
+    max-width: 800px;
+    max-height: 450px;
+    
 }
 
 .hidden {
     display: none;
 }
+
