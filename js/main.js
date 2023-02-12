@@ -1,6 +1,7 @@
 const slide = document.querySelector('#slider')
 const sliderItems = Array.from(slider.children);
 const btnNext = document.querySelector('#btnNext')
+const btnPrev = document.querySelector('#btnPrev')
 
 sliderItems.forEach(function (slide, index){
     
@@ -37,6 +38,18 @@ btnNext.onclick = function () {
     currentSlide.classList.add('hidden');
     currentSlide.removeAttribute('data-active')
     const nextSlideIndex = currentSlideIndex + 1 === sliderItems.length ? 0 : currentSlideIndex + 1; 
+    const nextSlide = slider.querySelector(`[data-index="${nextSlideIndex}"]`)
+    nextSlide.classList.remove('hidden')
+    nextSlide.setAttribute('data-active', '')
+
+}
+
+btnPrev.onclick = function () {
+    const currentSlide = slider.querySelector('[data-active]')
+    const currentSlideIndex = +currentSlide.dataset.index;
+    currentSlide.classList.add('hidden');
+    currentSlide.removeAttribute('data-active')
+    const nextSlideIndex = currentSlideIndex === 0 ? sliderItems.length - 1 : currentSlideIndex - 1; 
     const nextSlide = slider.querySelector(`[data-index="${nextSlideIndex}"]`)
     nextSlide.classList.remove('hidden')
     nextSlide.setAttribute('data-active', '')
